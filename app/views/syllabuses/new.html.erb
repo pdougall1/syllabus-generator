@@ -1,5 +1,3 @@
-
-
 <div class='row col-md-8 col-md-offset-2'>
   <h1>NEW SYLLABUS</h1>
   <%= simple_form_for @syllabus, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
@@ -11,6 +9,6 @@
     <%= f.input :start_date, label: 'Start' %>
     <%= f.input :end_date, label: 'End' %>
     <%= f.input :week_days, label: 'Days with class', as: :radio_buttons, collection: Syllabus.week_day_map.values %>
-    <%= f.button :submit %>
+    <%= f.button :submit, "Next Step" %>
   <% end %>
 </div>
