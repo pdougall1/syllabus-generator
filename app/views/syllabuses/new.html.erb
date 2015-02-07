@@ -1,11 +1,21 @@
-<h1>NEW</h1>
 
-<%= simple_form_for @syllabus, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
-  <%= f.input :subject, label: 'Subject' %>
-  <%= simple_fields_for @syllabus.instructor, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f_instructor| %>
-    <%= f_instructor.input :first_name, label: 'Instructor First Name' %>
-    <%= f_instructor.input :last_name, label: 'Instructor Last Name' %>
+
+<div class='row col-md-8 col-md-offset-2'>
+  <h1>NEW SYLLABUS</h1>
+  <%= simple_form_for @syllabus, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: {
+          check_boxes: :horizontal_radio_and_checkboxes,
+          radio_buttons: :horizontal_radio_and_checkboxes,
+          file: :horizontal_file_input,
+          boolean: :horizontal_boolean
+        } do |f| %>
+    <%= f.input :subject, label: 'Subject' %>
+    <%= simple_fields_for @syllabus.instructor, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f_instructor| %>
+      <%= f_instructor.input :first_name, label: 'Instructor First Name' %>
+      <%= f_instructor.input :last_name, label: 'Instructor Last Name' %>
+    <% end %>
+    <%= f.input :start_date, label: 'Start' %>
+    <%= f.input :end_date, label: 'End' %>
+    <%= f.input :week_days, label: 'Days with class', as: :radio_buttons, collection: Syllabus.week_day_map.values %>
+    <%= f.button :submit %>
   <% end %>
-  <hr>
-  <%= f.button :submit %>
-<% end %>
+</div>
