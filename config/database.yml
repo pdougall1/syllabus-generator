@@ -19,7 +19,7 @@ development:
   encoding: unicode
   database: syllabus-generator_development
   pool: 5
-  username: syllabus-generator
+  username: # syllabus-generator
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -48,13 +48,5 @@ test:
   encoding: unicode
   database: syllabus-generator_test
   pool: 5
-  username: syllabus-generator
-  password:
-
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: syllabus-generator_production
-  pool: 5
-  username: syllabus-generator
+  username: # syllabus-generator
   password:
