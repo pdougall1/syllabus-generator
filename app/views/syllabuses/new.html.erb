@@ -1,6 +1,11 @@
 <h1>NEW</h1>
 
-<%= form_for @syllabus do |f| %>
-  Subject: <%= f.text_field :subject %><br />
-  <%= f.submit %>
+<%= simple_form_for @syllabus, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
+  <%= f.input :subject, label: 'Subject' %>
+  <%= simple_fields_for @syllabus.instructor, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f_instructor| %>
+    <%= f_instructor.input :first_name, label: 'Instructor First Name' %>
+    <%= f_instructor.input :last_name, label: 'Instructor Last Name' %>
+  <% end %>
+  <hr>
+  <%= f.button :submit %>
 <% end %>
