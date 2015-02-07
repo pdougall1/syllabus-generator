@@ -3,6 +3,7 @@ class SchedulesController < ApplicationController
   def new
     if syllabus = Syllabus.find(params[:syllabus_id])
       @schedule = syllabus.build_schedule
+      @schedule.create_schedule_nodes
     else
       # TODO: give must add schedule to syllabus error
     end
