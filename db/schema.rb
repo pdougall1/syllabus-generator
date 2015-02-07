@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207183126) do
+ActiveRecord::Schema.define(version: 20150207185533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "instructors", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "syllabus_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "items", force: true do |t|
     t.integer  "schedule_node_id"
@@ -39,7 +47,6 @@ ActiveRecord::Schema.define(version: 20150207183126) do
 
   create_table "syllabuses", force: true do |t|
     t.string   "subject"
-    t.string   "instructor"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
