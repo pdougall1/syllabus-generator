@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207201644) do
+ActiveRecord::Schema.define(version: 20150208011100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150207201644) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "date"
   end
 
   create_table "schedules", force: true do |t|
@@ -52,6 +53,13 @@ ActiveRecord::Schema.define(version: 20150207201644) do
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "week_days",  default: [], array: true
+    t.boolean  "monday"
+    t.boolean  "tuesday"
+    t.boolean  "wednesday"
+    t.boolean  "thursday"
+    t.boolean  "friday"
+    t.boolean  "saturday"
+    t.boolean  "sunday"
   end
 
 end

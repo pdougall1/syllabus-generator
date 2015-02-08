@@ -4,8 +4,22 @@
   <%= simple_form_for @schedule, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
 
     <% @schedule.schedule_nodes.each do |node| %>
+      <%= week_separator(node.date) %>
       <%= simple_fields_for node, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
-        <%= f.input :title, label: 'Title' %>
+
+        <div class='schedule-nodes-form'>
+          <div><%= node.date.strftime("%A") %></div>
+          <%= f.input :title, label: 'Title' %>
+          <%= fields_for node.items.new, html: { class: 'form-horizontal' } do |f| %>
+            <div class='row'>
+              <div class='col-sm-9'>
+                <%= f.text_field :content, class: 'item-content string optional form-control' %>
+              </div>
+              <div class='schedule-nodes-item-controller string optional col-sm-3 control-label'></div>
+            </div>
+          <% end %>
+        </div>
+
       <% end %>
     <% end %>
 

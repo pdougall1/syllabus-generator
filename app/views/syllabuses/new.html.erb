@@ -8,7 +8,9 @@
     <% end %>
     <%= f.input :start_date, label: 'Start' %>
     <%= f.input :end_date, label: 'End' %>
-    <%= f.input :week_days, label: 'Days with class', as: :radio_buttons, collection: Syllabus.week_day_map.values %>
+    <% Schedule::WEEK_DAYS_MAP.values.each do |day| %>
+      <%= f.input day, label: day.capitalize %>
+    <% end %>
     <%= f.button :submit, "Next Step" %>
   <% end %>
 </div>

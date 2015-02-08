@@ -1,0 +1,17 @@
+.week-separator {
+  border-bottom: 1px solid gray;
+  margin: 50px 0 0 0;
+}
+
+.schedule-nodes-form {
+  padding-top:20px;
+  div:first-of-type {
+    float: right;
+  }
+  .schedule-nodes-item-controller {
+    font-size: 40px;
+  }
+  .item-content {
+    height: 100px;
+  }
+}
