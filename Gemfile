@@ -14,9 +14,11 @@ gem 'simple_form'
 gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
+gem 'rack-cors', :require => 'rack/cors'
 
 # good stuff
 gem 'pry'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
