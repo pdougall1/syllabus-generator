@@ -30,5 +30,6 @@ module SyllabusGenerator
         resource '*', headers: :any, methods: [:get, :post, :put, :delete, :options]
       end
     end
+    config.middleware.insert_before 1, "AutocompleteMiddleware"
   end
 end
