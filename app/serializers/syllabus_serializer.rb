@@ -2,18 +2,18 @@ class SyllabusSerializer < ActiveModel::Serializer
   attributes :id, :subject, :created_at, :updated_at, 
              :start_date, :end_date, :monday, 
              :tuesday, :wednesday, :thursday, :friday, 
-             :saturday, :sunday, :schedule_id, :schedule_node_ids
+             :saturday, :sunday, :schedule, :schedule_nodes,
+             :instructors
 
-  def schedule_id
-    object.schedule.id if object.schedule
+  def schedule
+    object.schedule if object.schedule
   end
 
-  def schedule_node_ids
-    object.schedule_nodes.pluck(:id)
+  def schedule_nodes
+    object.schedule_nodes
   end
 
-  def start_date
-    object.start_date
+  def instructors
+    object.instructors
   end
 end
-

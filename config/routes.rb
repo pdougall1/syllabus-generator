@@ -1,5 +1,6 @@
 SyllabusGenerator::Application.routes.draw do
 
+  resources :instructors
   resources :syllabuses
   resources :schedules
   resources :schedule_nodes

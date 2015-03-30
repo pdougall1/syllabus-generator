@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329201753) do
+ActiveRecord::Schema.define(version: 20150330154533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20150329201753) do
   create_table "instructors", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "syllabus_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,13 +46,20 @@ ActiveRecord::Schema.define(version: 20150329201753) do
     t.datetime "updated_at"
   end
 
+  create_table "syllabus_instructors", force: true do |t|
+    t.integer  "syllabus_id"
+    t.integer  "instructor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "syllabuses", force: true do |t|
     t.string   "subject"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.integer  "week_days",  default: [], array: true
+    t.integer  "week_days",     default: [], array: true
     t.boolean  "monday"
     t.boolean  "tuesday"
     t.boolean  "wednesday"
@@ -61,6 +67,7 @@ ActiveRecord::Schema.define(version: 20150329201753) do
     t.boolean  "friday"
     t.boolean  "saturday"
     t.boolean  "sunday"
+    t.integer  "instructor_id"
   end
 
 end
