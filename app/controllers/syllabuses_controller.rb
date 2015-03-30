@@ -7,8 +7,13 @@ class SyllabusesController < ApplicationController
 
   def create
     @syllabus = Syllabus.create(syllabus_params)
-    schedule = @syllabus.create_schedule
-    schedule.create_schedule_nodes
+    @syllabus.create_schedule
+    @syllabus.create_schedule_nodes
+    render json: @syllabus
+  end
+
+  def update
+    @syllabus = Syllabus.find(params[:id]).update_attributes(syllabus_params)
     render json: @syllabus
   end
 

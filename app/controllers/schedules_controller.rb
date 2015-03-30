@@ -1,17 +1,19 @@
 class SchedulesController < ApplicationController
 
-  def new
-    if syllabus = Syllabus.find(params[:syllabus_id])
-      @schedule = syllabus.create_schedule
-      @schedule.create_schedule_nodes
-      render json: @schedule
-    else
-      # TODO: give "must add schedule to syllabus" error
-    end
-  end
-
   def show
     @schedule = Schedule.find(params[:id])
+    @schedule.create_schedule_nodes unless @schedule.has_schedule_nodes?
     render json: @schedule
+  end
+
+  def create
+    @schedule = Schedule.create(schedule_params)
+    render json: @schedule
+  end
+
+  private
+
+  def schedule_params
+    params.require(:schedule).permit(:syllabus_id, :created_at, :updated_at)
   end
 end

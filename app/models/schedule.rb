@@ -17,10 +17,16 @@ class Schedule < ActiveRecord::Base
   end
 
   def create_schedule_nodes
-    (syllabus.start_date..syllabus.end_date).each do |date|
+    (syllabus.start_date.to_date..syllabus.end_date.to_date).each do |date|
       if syllabus.send(week_days_map[date.wday])
+        # use templates here
+        binding.pry # figure out how to keep the main template editable?
         self.schedule_nodes.create(date: date)
       end
     end
+  end
+
+  def has_schedule_nodes?
+    schedule_nodes.count > 0
   end
 end
