@@ -32,3 +32,6 @@ class ItemsController < ApplicationController
     params.require(:item).permit(param_names)
   end
 end
+
+
+

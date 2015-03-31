@@ -10,7 +10,11 @@ class SyllabusSerializer < ActiveModel::Serializer
   end
 
   def schedule_nodes
-    object.schedule_nodes
+    object.schedule_nodes.map do |node|
+      attrs = node.attributes
+      attrs[:item_ids] = node.items.pluck(:id)
+      attrs
+    end
   end
 
   def instructors
