@@ -1,5 +1,10 @@
 class SyllabusesController < ApplicationController
 
+  def index
+    @syllabuses = Syllabus.all
+    render json: @syllabuses, each_serializer: SyllabusSerializer
+  end
+
   def show
     @syllabus = Syllabus.find(params[:id])
     render json: @syllabus

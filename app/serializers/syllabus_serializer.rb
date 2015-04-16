@@ -3,10 +3,14 @@ class SyllabusSerializer < ActiveModel::Serializer
              :start_date, :end_date, :monday, 
              :tuesday, :wednesday, :thursday, :friday, 
              :saturday, :sunday, :schedule, :schedule_node_ids,
-             :instructors
+             :instructors, :schedule_id
 
   def schedule
     object.schedule if object.schedule
+  end
+
+  def schedule_id
+    object.schedule.id if object.schedule
   end
 
   def schedule_node_ids
