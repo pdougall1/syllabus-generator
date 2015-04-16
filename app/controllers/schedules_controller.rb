@@ -2,7 +2,6 @@ class SchedulesController < ApplicationController
 
   def show
     @schedule = Schedule.find(params[:id])
-    @schedule.create_schedule_nodes unless @schedule.has_schedule_nodes?
     render json: @schedule
   end
 

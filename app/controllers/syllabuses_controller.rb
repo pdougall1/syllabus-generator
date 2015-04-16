@@ -11,7 +11,6 @@ class SyllabusesController < ApplicationController
       instructor = Instructor.create(instructor)
       SyllabusInstructor.create(instructor: instructor, syllabus: @syllabus)
     end
-    @syllabus.create_schedule
     @syllabus.create_schedule_nodes
     render json: @syllabus
   end

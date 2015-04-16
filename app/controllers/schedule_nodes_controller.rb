@@ -5,6 +5,11 @@ class ScheduleNodesController < ApplicationController
     render json: @schedule_node, each_serializer: ScheduleNodeSerializer
   end
 
+  def show
+    @schedule_node = ScheduleNode.find(params[:id])
+    render json: @schedule_node
+  end
+
   def create
     @schedule_node = ScheduleNode.create(schedule_node_params)
     render json: @schedule_node

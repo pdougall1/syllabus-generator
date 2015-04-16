@@ -5,6 +5,7 @@ SyllabusGenerator::Application.routes.draw do
   resources :schedules
   resources :schedule_nodes
   resources :items
+  resources :builds
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
