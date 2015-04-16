@@ -9,14 +9,6 @@ class SyllabusSerializer < ActiveModel::Serializer
     object.schedule if object.schedule
   end
 
-  # def schedule_nodes
-  #   object.schedule_nodes.map do |node|
-  #     attrs = node.attributes
-  #     attrs[:item_ids] = node.items.pluck(:id)
-  #     attrs
-  #   end
-  # end
-
   def schedule_node_ids
     object.schedule_nodes.pluck(:id)
   end

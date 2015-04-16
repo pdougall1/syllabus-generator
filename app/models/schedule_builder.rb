@@ -6,7 +6,7 @@ class ScheduleBuilder
 
   def initialize(syllabus: syllabus)
     @syllabus = syllabus
-    @schedule = syllabus.schedule
+    @schedule = @syllabus.create_schedule
     @templates = syllabus.schedule_nodes
   end
 
