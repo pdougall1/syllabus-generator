@@ -15,6 +15,7 @@ gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem 'rack-cors', :require => 'rack/cors'
+gem 'htmltoword', '0.1.8'
 
 # good stuff
 gem 'pry'

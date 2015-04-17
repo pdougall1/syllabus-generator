@@ -1,0 +1,38 @@
+<h1>TITLE : <%= @syllabus.subject %></h1>
+<h3>Here we are</h3>
+<div>And then there's this.</div>
+
+<div class='row'>
+  <div class="col-md-6">Subject:</div>
+  <div class="col-md-6"><%= @syllabus.subject %></div>
+</div>
+<div class='row'>
+  <div class="col-md-6">Start Date:</div>
+  <div class="col-md-6"><%= @syllabus.start_date %></div>
+</div>
+<div class='row'>
+  <div class="col-md-6">End Date:</div>
+  <div class="col-md-6"><%= @syllabus.end_date %></div>
+</div>
+
+<ul>
+<% @syllabus.schedule.schedule_nodes.each do |node| %>
+  <li class='day'>
+    <div class="row">
+      <div class="col-md-3">
+        <div><%= node.date %></div>    
+      </div>
+      <div class="col-md-9">
+        <ul>
+          <% node.items.each do |item| %>
+            <li class='node'>
+              <div><%= item.name %></div>
+              <div><%= item.content %></div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </li>
+<% end %>
+</ul>
