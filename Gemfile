@@ -16,6 +16,8 @@ gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem 'rack-cors', :require => 'rack/cors'
 gem 'htmltoword', '0.1.8'
+gem 'rails_12factor'
+gem 'redis'
 
 # good stuff
 gem 'pry'
